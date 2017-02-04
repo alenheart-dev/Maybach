@@ -1,5 +1,5 @@
 # Maybach
-Fast and tiny (~16k aar) library that simplify the communication between components.
+Fast and tiny (~16k aar) library that simplifies the communication between different application components.
 
 ## Getting started
 
@@ -9,14 +9,16 @@ Create an event:
 Event<AnyObject> yourEvent = new Event<AnyObject>("eventName") {
     @Override
     protected void onEvent(AnyObject object) {
-
+        // do stuff with object
     }
 };
 ```
 
-Sign up for events and unregister them according to the reference life cycle, activity for example:
+Sign up for the event and unregister from it based on the lifecycle:
    
 ```java
+// activity code
+
 @Override
 public void onStart() {
     super.onStart();
@@ -30,7 +32,7 @@ public void onStop() {
 }
 ```
 
-Trigger events:
+Trigger the event from somewhere else in your application:
 
 ```java
 Maybach.get().triggerEvent("eventName", new AnyObject());
